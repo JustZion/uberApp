@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -6,6 +6,8 @@ import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useSelector, useDispatch} from 'react-redux'
 import { setDestination, setOrigin } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
+import NavFavorites from './NavFavorites';
+import { Icon } from 'react-native-elements';
 
 
 const NavigateCard = () => {
@@ -48,6 +50,21 @@ const NavigateCard = () => {
           fetchDetails={true}
           />
         </View>
+        <NavFavorites />
+      </View>
+      
+      <View style={tw`flex-row justify-evenly mt-4`}>
+        <TouchableOpacity 
+        onPress={() => Navigate.navigate('RideCarsPark')}
+        style={tw`bg-black w-32 py-4 px-6 flex-row justify-evenly rounded-full`}>
+          <Icon color='white' size={20} name='car' type='font-awesome' />
+          <Text style={tw`text-white`}>Rides</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={tw`w-32 py-4 px-6  flex-row justify-evenly flex-row rounded-full`}>
+          <Icon color='black' size={20} name='fast-food-outline' type='ionicon' />
+          <Text style={tw`text-black`}>Food</Text>
+        </TouchableOpacity>
         
       </View>
     </SafeAreaView>
@@ -66,7 +83,7 @@ const toInputStyles = StyleSheet.create({
   },
 
   container: {
-    paddingTop: 20,
+    paddingTop: 10,
     flex: 0,
     backgroundColor:'white'
   },
