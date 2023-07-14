@@ -23,13 +23,12 @@ const NavOptions = () => {
     const origin = useSelector(state=> state.nav.origin)
 
   return (
-    <FlatList 
-    style={tw`pl-5`}
+    <FlatList
      data = {data}
      keyExtractor={(item)=> item.id}
      horizontal
      renderItem={({item})  => (
-        <TouchableOpacity style={tw`bg-gray-200 px-6 py-7 mr-4`}
+        <TouchableOpacity style={tw`bg-gray-200 p-2 px-6 py-6 pb-16 mr-4 mt-2 w-44`}
             onPress={() => navigation.navigate(item.screen)}
             disabled={!origin}
         >

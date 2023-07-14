@@ -20,7 +20,7 @@ const data = [{
 
 const NavFavorites = () => {
   return (
-    <FlatList data={data} keyExtractor={(item) => item.id} 
+    <FlatList style={tw`bg-white`} data={data} keyExtractor={(item) => item.id} 
         ItemSeparatorComponent={()=> (
             <View style={[tw`bg-gray-500 `, style={height: 0.5}]}></View>
         )}

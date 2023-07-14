@@ -1818,6 +1818,11 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
+"@react-native-community/geolocation@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@react-native-community/geolocation/-/geolocation-3.0.6.tgz#e2c83c242f917ce5a494cedb161c37abd5f2a72a"
+  integrity sha512-+iidKFgw1HxCJSHVnlywAKu6uerdpDAKTXLRnlsUdhgqtgTiIixb496Z267iPVFmIO1bp4lOU6UiwzmvcyXdbg==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -3479,6 +3484,11 @@ expo-keep-awake@~12.0.1:
   version "12.0.1"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-12.0.1.tgz#19c5ab55391394ded3f6c262b0707c7140658a11"
   integrity sha512-hqeCnb4033TyuZaXs93zTK7rjVJ3bywXATyMmKmKkLEsH2PKBAl/VmjlCOPQL/2Ncqz6aj7Wo//tjeJTARBD4g==
+
+expo-location@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-16.0.0.tgz#47922f4937192868fa799464c5654dbc9c67d7d6"
+  integrity sha512-v76QOjaYi4wfvqW1yKzMwKnWUcahJPq0dcg9W3Tm6x/HdCUHZJ6fNZw8wLmTZT8JNNCnqqRVZC67kbHG20odAg==
 
 expo-modules-autolinking@1.2.0:
   version "1.2.0"
@@ -6208,6 +6218,11 @@ react-native-elemets@^0.0.1-security:
   version "0.0.1-security"
   resolved "https://registry.yarnpkg.com/react-native-elemets/-/react-native-elemets-0.0.1-security.tgz#ced2d5c588c3eed15dae595c0474f4381aa32039"
   integrity sha512-lBcIU2wREsqTNxgCqcr7/FKddCT1xkE8/4F9Vqiv/CgO4U1DymhZThOf5wKsx6Xo5KkH81hug+ZsbIePI5+p+A==
+
+react-native-geolocation-service@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz#4ce1017789da6fdfcf7576eb6f59435622af4289"
+  integrity sha512-LTXPtPNmrdhx+yeWG47sAaCgQc3nG1z+HLLHlhK/5YfOgfLcAb9HAkhREPjQKPZOUx8pKZMIpdGFUGfJYtimXQ==
 
 react-native-google-places-autocomplete@^2.5.1:
   version "2.5.1"
