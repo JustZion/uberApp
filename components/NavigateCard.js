@@ -19,10 +19,10 @@ const NavigateCard = () => {
   const [selected, setSelected] = useState(null)
   
 
-  console.log('yeeee', destiny)
+  // console.log('yeeee', destiny)
 
   useEffect(() => {
-    if (destiny.description) setSelected('rides')
+    if (destiny?.description) setSelected('rides')
   }, [])
 
   return (

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, Image, KeyboardAvoidingView, ScrollView, TouchableOpacity, TextInput } from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../components/NavOptions'
@@ -9,6 +9,14 @@ import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavorites from '../components/NavFavorites';
 import { Icon, Input } from 'react-native-elements';
 import * as Location from 'expo-location'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import ProfileScreen from '../sideMenu/Profile';
+import SettingsScreen from '../sideMenu/Settings';
+import SavedScreen from '../sideMenu/Saved';
+import ReferScreen from '../sideMenu/Refer';
+import Otp from '../components/Otp';
 
 // navigator.geolocation = require('react-native-geolocation-service');
 
@@ -18,6 +26,8 @@ const HomeScreen = () => {
     const test = useSelector(state=> state.nav.origin)
     const [mylocation, setmyLocation] = useState(null)
     const location = useRef()
+    const Drawer = createDrawerNavigator();
+    
 
 
     const getPermission = async () => {
@@ -40,12 +50,12 @@ const HomeScreen = () => {
             latitude:  rawAddress.coords.latitude
         })
         setmyLocation(geocodedLocation[0].name + ' ' + geocodedLocation[0].street);
-        console.log('reversed', geocodedLocation)
+        // console.log('reversd', geocodedLocation)
     }
 
     const testt = ()=> {
         const x = location.current.getAddressText()
-        console.log(x)
+        console.log('gotten',x)
     }
     useEffect(() => {
        
@@ -55,8 +65,17 @@ const HomeScreen = () => {
     })
 
   return (
+    <>
+    
+    
+    
     <SafeAreaView style={tw`bg-white h-full`}>
+        <KeyboardAvoidingView>
+
+        
       <View style={tw`bg-white pt-5 pl-5`}>
+        <View style={tw`flex-row justify-between`}>
+
         <Image
             style={{ 
             width: 100, 
@@ -68,6 +87,10 @@ const HomeScreen = () => {
             } 
         />
 
+        <TouchableOpacity style={tw`mt-4 mr-6 bg-gray-200 rounded-full w-14 h-14 flex justify-center `}>
+            <Icon name='menu-outline' size={30} type='ionicon'/>
+        </TouchableOpacity>
+        </View>
         <GooglePlacesAutocomplete
             ref = {location}
             styles= {{
@@ -86,12 +109,13 @@ const HomeScreen = () => {
                 language: 'enr',
             }}
             onPress={(data, details = null) => {
+                console.log('yesstyped');
                 dispatch(setOrigin({
                     location: details.geometry.location,
                     description: data.description
 
                 }))
-
+               
                 dispatch(setDestination(null))
                 console.log(test, 'testing')
             }}
@@ -159,8 +183,25 @@ const HomeScreen = () => {
        
       <NavOptions  />
       <NavFavorites />
+      <Otp />
+      <TextInput
+      
+      editable
+        multiline
+        numberOfLines={4}
+        maxLength={40}
+       
+        value={'77'}
+        style={{padding: 10}}
+        
+        />
+      
       </View>
+      
+      </KeyboardAvoidingView>
     </SafeAreaView>
+   
+    </>
   )
 }
 
