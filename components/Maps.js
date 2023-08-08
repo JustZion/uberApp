@@ -4,7 +4,6 @@ import MapView, { Marker } from 'react-native-maps';
 import tw from 'tailwind-react-native-classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import MapViewDirections from 'react-native-maps-directions'
-import { GOOGLE_MAPS_APIKEY } from '@env'
 import { settimeTravelInformation } from '../slices/navSlice';
 
 const Maps = () => {
@@ -12,6 +11,8 @@ const Maps = () => {
     const origin = useSelector(state=> state.nav.origin)
     const destination = useSelector(state=> state.nav.destination)
     const mapRef = useRef(null)
+
+    const keys = process.env.GOOGLE_MAPS_APIKEY
 
    const dispatch = useDispatch()
 
@@ -37,7 +38,7 @@ const Maps = () => {
 
         const URL =`https://maps.googleapis.com/maps/api/distancematrix/json?origins=
         ${origin.description}&destinations=${destination.description}&units
-        imperial&key=${GOOGLE_MAPS_APIKEY}`
+        imperial&key=${keys}`
 
        const getTravelTime = async () => {
             fetch(URL).then((res) => res.json()).then((data) => {console.log(data, 'norm');
@@ -48,7 +49,7 @@ const Maps = () => {
         getTravelTime()
 
 
-    }, [origin, destination, GOOGLE_MAPS_APIKEY])
+    }, [origin, destination, keys])
   return (
     <MapView
         ref = {mapRef}
@@ -66,7 +67,7 @@ const Maps = () => {
             <MapViewDirections
             origin= {origin.description}
             destination={destination.description}
-            apikey={GOOGLE_MAPS_APIKEY}
+            apikey={keys}
             strokeWidth={2}
             strokeColor='black'
             />

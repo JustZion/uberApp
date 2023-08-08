@@ -2,7 +2,6 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-na
 import React, { useEffect, useState } from 'react'
 import tw from 'tailwind-react-native-classnames'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useSelector, useDispatch} from 'react-redux'
 import { setDestination, setOrigin } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
@@ -17,6 +16,8 @@ const NavigateCard = () => {
 
   const destiny = useSelector(state=> state.nav.destination)
   const [selected, setSelected] = useState(null)
+
+  const keys = process.env.GOOGLE_MAPS_APIKEY
   
 
   // console.log('yeeee', destiny)
@@ -35,7 +36,7 @@ const NavigateCard = () => {
             placeholder='Where too ?'
             debounce={400}
             query= {{
-              key: GOOGLE_MAPS_APIKEY,
+              key: keys,
               language: 'en',
           }}
 

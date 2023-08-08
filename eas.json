@@ -16,6 +16,9 @@
      "androidapk": {
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "GOOGLE_MAPS_APIKEY" : "AIzaSyBjgafFIYVQUj16UfDAz5GSQyPxuS5bpe4"
       }
     }
   },

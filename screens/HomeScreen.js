@@ -3,7 +3,6 @@ import React, {useEffect, useRef, useState} from 'react'
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useSelector, useDispatch} from 'react-redux'
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavorites from '../components/NavFavorites';
@@ -28,6 +27,7 @@ const HomeScreen = () => {
     const location = useRef()
     const Drawer = createDrawerNavigator();
     
+    const keys = process.env.GOOGLE_MAPS_APIKEY
 
 
     const getPermission = async () => {
@@ -105,7 +105,7 @@ const HomeScreen = () => {
             }}
 
             query= {{
-                key: GOOGLE_MAPS_APIKEY,
+                key: keys,
                 language: 'enr',
             }}
             onPress={(data, details = null) => {
@@ -183,18 +183,7 @@ const HomeScreen = () => {
        
       <NavOptions  />
       <NavFavorites />
-      <Otp />
-      <TextInput
       
-      editable
-        multiline
-        numberOfLines={4}
-        maxLength={40}
-       
-        value={'77'}
-        style={{padding: 10}}
-        
-        />
       
       </View>
       
